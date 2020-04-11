@@ -1,0 +1,35 @@
+{
+  "name": "muta-codegen",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "bin": {
+    "muta-generate-sdk": "lib/index.js"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "@graphql-codegen/core": "^1.13.2",
+    "@graphql-codegen/typescript": "^1.13.2",
+    "@types/lodash": "^4.14.149",
+    "@types/request": "^2.48.4",
+    "@types/request-promise": "^4.1.46",
+    "commander": "^5.0.0",
+    "graphql": "^15.0.0",
+    "graphql-codegen-plugin-mutasdk": "^0.0.1",
+    "handlebars": "^4.7.6",
+    "lodash": "^4.17.15",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}

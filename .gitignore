@@ -1,0 +1,14 @@
+.DS_Store
+
+node_modules
+.idea
+
+lib
+.build-cache
+*.tsbuildinfo
+
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*

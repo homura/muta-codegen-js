@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "lib": ["es2018"],
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "baseUrl": "./packages",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@foo/*": ["./*/src"]
+    }
+  },
+  "references": [
+    {
+      "path": "packages/graphql-codegen-plugin-mutasdk"
+    },
+    {
+      "path": "packages/muta-codegen-cli"
+    }
+  ]
+}

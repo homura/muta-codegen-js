@@ -1,0 +1,49 @@
+{
+  "name": "muta-codegen",
+  "version": "0.0.1",
+  "private": true,
+  "author": "homura.dev@gmail.com",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "lerna run bootstrap",
+    "build": "tsc -b packages/*",
+    "clean": "npm-run-all clean:*",
+    "clean:cache": "rimraf .cache",
+    "clean:packages": "lerna run clean",
+    "test": "jest --config=jest.json"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^25.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "babel-jest": "^25.2.6",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "jest": "^25.2.7",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.3.1",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "eslint --fix packages",
+      "git add"
+    ]
+  }
+}

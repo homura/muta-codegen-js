@@ -1,0 +1,21 @@
+{
+  "name": "graphql-codegen-plugin-mutasdk",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "@graphql-codegen/plugin-helpers": "^1.13.2"
+  }
+}
