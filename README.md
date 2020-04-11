@@ -13,7 +13,7 @@ A cli for generate SDK for muta blockchain instance
 git clone https://github.com/homura/muta-codegen-js.git
 yarn
 yarn build
-cd
+cd muta-codegen-js
 
 # output the help message 
 node packages/muta-codegen-cli --help
