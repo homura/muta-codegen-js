@@ -16,6 +16,10 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@graphql-codegen/plugin-helpers": "^1.13.2"
+    "@graphql-codegen/plugin-helpers": "^1.13.2",
+    "handlebars": "^4.7.6"
+  },
+  "devDependencies": {
+    "graphql": "^15.0.0"
   }
 }

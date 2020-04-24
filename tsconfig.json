@@ -14,7 +14,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "paths": {
-      "@foo/*": ["./*/src"]
+      "graphql-codegen-plugin-mutasdk": ["./graphql-codegen-plugin-mutasdk/src"]
     }
   },
   "references": [
