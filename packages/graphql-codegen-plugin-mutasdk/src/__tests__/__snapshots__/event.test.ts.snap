@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test one event 1`] = `
+"
+
+export function isEventOfCreateAssetEvent(event: any): event is CreateAssetEvent {
+  return event?.topic === 'CreateAssetEvent';
+}
+
+type _EventName = 'CreateAssetEvent';
+
+interface _IsEventOf {
+  (name: 'CreateAssetEvent', event: any): event is CreateAssetEvent;
+}
+
+export const isEventOf: _IsEventOf =
+  ((name: _EventName, event: any) => event?.topic === name) as _IsEventOf;
+  "
+`;

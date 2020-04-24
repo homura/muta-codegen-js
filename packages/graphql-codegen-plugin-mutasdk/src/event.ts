@@ -1,6 +1,7 @@
 import { PluginFunction } from '@graphql-codegen/plugin-helpers';
+import { GraphQLSchema } from 'graphql';
 
-const importSegment = `
+const importSegment = `/* eslint-disable */
 import { u64, Hash, Address, Uint64 , Bytes, u32, Vec } from "@mutajs/types";
 `;
 
@@ -28,18 +29,22 @@ interface _IsEventOf {
   ).join('\n')}
 }
 
-export const isEventOf =
+export const isEventOf: _IsEventOf =
   ((name: _EventName, event: any) => event?.topic === name) as _IsEventOf;
   `;
 }
 
-export const plugin: PluginFunction = schema => {
+export function generateEventDefCode(schema: GraphQLSchema): string {
   const eventDefs = Object.keys(schema.getTypeMap())
     .filter(name => name.endsWith('Event'))
     .map<EventDef>(name => ({ name }));
 
+  return template({ events: eventDefs });
+}
+
+export const plugin: PluginFunction = schema => {
   return {
     prepend: [importSegment],
-    content: template({ events: eventDefs }),
+    content: generateEventDefCode(schema),
   };
 };
