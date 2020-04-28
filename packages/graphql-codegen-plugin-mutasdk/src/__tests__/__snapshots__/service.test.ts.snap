@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generate AssetService binding 1`] = `
+"
+export const Asset = createBindingClass(
+  'asset',
+  {
+    get_asset: query<GetAssetPayload, Asset>(),
+    get_balance: query<GetBalancePayload, Balance>(),
+  },
+  {
+    transfer: mutation<TransferPayload, Null>(),
+  }
+);
+"
+`;
+
+exports[`generate empty service 1`] = `
+"
+export const Asset = createBindingClass(
+  'asset',
+  {
+    
+  },
+  {
+    
+  }
+);
+"
+`;
