@@ -14,15 +14,22 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "paths": {
-      "graphql-codegen-plugin-mutasdk": ["./graphql-codegen-plugin-mutasdk/src"]
+      "graphql-codegen-plugin-mutasdk": [
+        "./graphql-codegen-plugin-mutasdk/src"
+      ],
+      "muta-codegen-test": ["./test/src"]
     }
   },
+  "files": [],
   "references": [
     {
       "path": "packages/graphql-codegen-plugin-mutasdk"
     },
     {
       "path": "packages/muta-codegen-cli"
+    },
+    {
+      "path": "packages/muta-codegen-test"
     }
   ]
 }
