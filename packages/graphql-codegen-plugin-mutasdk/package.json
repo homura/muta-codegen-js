@@ -17,9 +17,11 @@
   },
   "dependencies": {
     "@graphql-codegen/plugin-helpers": "^1.13.2",
-    "handlebars": "^4.7.6"
+    "handlebars": "^4.7.6",
+    "muta-codegen-test": "^0.0.1"
   },
   "devDependencies": {
-    "graphql": "^15.0.0"
+    "graphql": "^15.0.0",
+    "muta-codegen-test": "^0.0.1"
   }
 }

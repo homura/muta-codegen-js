@@ -2,7 +2,7 @@
 
 exports[`generate AssetService binding 1`] = `
 "
-export const Asset = createBindingClass(
+export const AssetService = createBindingClass(
   'asset',
   {
     get_asset: query<GetAssetPayload, Asset>(),
@@ -17,7 +17,7 @@ export const Asset = createBindingClass(
 
 exports[`generate empty service 1`] = `
 "
-export const Asset = createBindingClass(
+export const AssetService = createBindingClass(
   'asset',
   {
     

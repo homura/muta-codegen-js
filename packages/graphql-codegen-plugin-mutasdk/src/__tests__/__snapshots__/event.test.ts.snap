@@ -3,14 +3,32 @@
 exports[`test one event 1`] = `
 "
 
-export function isEventOfCreateAssetEvent(event: any): event is CreateAssetEvent {
-  return event?.topic === 'CreateAssetEvent';
+export function isEventOfAsset(event: any): event is Asset {
+  return event?.topic === 'Asset';
 }
 
-type _EventName = 'CreateAssetEvent';
+export function isEventOfTransferEvent(event: any): event is TransferEvent {
+  return event?.topic === 'TransferEvent';
+}
+
+export function isEventOfApproveEvent(event: any): event is ApproveEvent {
+  return event?.topic === 'ApproveEvent';
+}
+
+export function isEventOfTransferFromEvent(event: any): event is TransferFromEvent {
+  return event?.topic === 'TransferFromEvent';
+}
+
+type _EventName = 'Asset' |
+  'TransferEvent' |
+  'ApproveEvent' |
+  'TransferFromEvent';
 
 interface _IsEventOf {
-  (name: 'CreateAssetEvent', event: any): event is CreateAssetEvent;
+  (name: 'Asset', event: any): event is Asset;
+  (name: 'TransferEvent', event: any): event is TransferEvent;
+  (name: 'ApproveEvent', event: any): event is ApproveEvent;
+  (name: 'TransferFromEvent', event: any): event is TransferFromEvent;
 }
 
 export const isEventOf: _IsEventOf =

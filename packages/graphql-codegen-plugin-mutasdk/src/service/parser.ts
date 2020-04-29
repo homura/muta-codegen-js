@@ -9,7 +9,7 @@ import {
 import { MethodDef } from '../types';
 
 function fieldToMethodDef(field: GraphQLField<any, any>): MethodDef {
-  const payloadType = field.args[0].type;
+  const payloadType = field.args?.[0]?.type ?? '';
   const payload = isNonNullType(payloadType)
     ? payloadType.ofType
     : (payloadType as GraphQLScalarType | GraphQLInputObjectType);

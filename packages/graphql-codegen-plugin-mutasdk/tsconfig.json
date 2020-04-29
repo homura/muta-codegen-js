@@ -1,9 +1,15 @@
 {
   "include": ["src"],
+  "exclude": ["**/__tests__/**/*.test.ts"],
   "extends": "../../tsconfig",
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
     "tsBuildInfoFile": "../../.cache/graphql-codegen-plugin-mutasdk.tsbuildinfo"
-  }
+  },
+  "references": [
+    {
+      "path": "../muta-codegen-test"
+    }
+  ]
 }

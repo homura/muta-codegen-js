@@ -1,4 +1,5 @@
 import { buildSchema } from 'graphql';
+import { AssetEventSchema } from 'muta-codegen-test';
 import { generateEventDefCode } from '../event';
 
 it('empty event input should output empty result', () => {
@@ -6,20 +7,5 @@ it('empty event input should output empty result', () => {
 });
 
 it('test one event', () => {
-  expect(
-    generateEventDefCode(
-      buildSchema(`
-  scalar Hash
-  scalar Address
-  scalar u64
-
-  type CreateAssetEvent {
-    asset_id: Hash!
-    from: Address!
-    to: Address!
-    value: u64
-  }
-  `),
-    ),
-  ).toMatchSnapshot();
+  expect(generateEventDefCode(buildSchema(AssetEventSchema))).toMatchSnapshot();
 });
