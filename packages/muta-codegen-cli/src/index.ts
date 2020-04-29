@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { writeFileSync } from 'fs';
-import { codegen } from './codegen';
-import { fetchSchema } from './fetch';
+import { fetchSchemaSource } from './fetch';
+import { writeToTs } from './write-to-ts';
 
 const program = new Command();
 
@@ -17,33 +16,39 @@ program
     '--out <out>',
     'a file path for output, if not provided, ' +
       'it will be printed directly on the console',
+    'generated',
   )
   .option(
     '--source <source>',
     'a file path, or graphql schema of service, ' +
       'if this option is provided, the endpoint will not be used',
-  );
+  )
+  .option('--sdk-version <mutaSDKVersion>', 'version of muta-sdk', '0.11.0')
+  .option('--name [name]', 'project name', 'my-sdk');
 
 interface Options {
-  out?: string;
-  source?: string;
-  endpoint?: string;
+  out: string;
+  endpoint: string;
+  name: string;
+  mutaSDKVersion: string;
 }
 
-async function main(): Promise<void> {
+export async function start(options: Options): Promise<void> {
+  const { endpoint, name, out, mutaSDKVersion } = options;
+  const schemaSource = await fetchSchemaSource(endpoint);
+
+  await writeToTs({
+    mutaSDKVersion,
+    name,
+    path: out,
+    services: schemaSource,
+  });
+}
+
+export async function main(): Promise<void> {
   program.parse(process.argv);
-
-  const options: Options = program.opts();
-
-  const code = await codegen(
-    options.source ?? (await fetchSchema(options.endpoint)),
-  );
-
-  if (options.out) {
-    writeFileSync(options.out, code);
-    return;
-  }
-  console.log(code);
+  const options = program.opts() as Options;
+  await start(options);
   process.exit(0);
 }
 

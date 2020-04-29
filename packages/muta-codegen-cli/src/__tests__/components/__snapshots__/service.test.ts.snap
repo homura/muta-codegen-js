@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`asset service 1`] = `
+"/* eslint-disable */
+import { createBindingClass, query, mutation } from \\"@mutajs/service\\";
+import { u64, Hash, Address, Uint64 , Bytes, u32, Vec, Null } from \\"@mutajs/types\\";
+
+export type Maybe<T> = T | null;
+
+export const AssetService = createBindingClass(
+  'asset',
+  {
+    get_asset: query<GetAssetPayload, Asset>(),
+    get_balance: query<GetBalancePayload, GetBalanceResponse>(),
+    get_allowance: query<GetAllowancePayload, GetAllowanceResponse>(),
+  },
+  {
+    create_asset: mutation<CreateAssetPayload, Asset>(),
+    transfer: mutation<TransferPayload, null>(),
+    approve: mutation<ApprovePayload, null>(),
+    transfer_from: mutation<TransferFromPayload, null>(),
+  }
+);
+
+/** All built-in and custom scalars, mapped to their actual values */
+export type Scalars = {
+  ID: string;
+  String: string;
+  Boolean: boolean;
+  Int: number;
+  Float: number;
+  Address: Address;
+  Hash: Hash;
+  Uint64: Uint64;
+  Null: '';
+};
+
+export type Mutation = {
+  create_asset: Asset;
+  transfer?: Maybe<Scalars['Null']>;
+  approve?: Maybe<Scalars['Null']>;
+  transfer_from?: Maybe<Scalars['Null']>;
+};
+
+
+export type MutationCreate_AssetArgs = {
+  payload: CreateAssetPayload;
+};
+
+
+export type MutationTransferArgs = {
+  payload: TransferPayload;
+};
+
+
+export type MutationApproveArgs = {
+  payload: ApprovePayload;
+};
+
+
+export type MutationTransfer_FromArgs = {
+  payload: TransferFromPayload;
+};
+
+export type Query = {
+  get_asset: Asset;
+  get_balance: GetBalanceResponse;
+  get_allowance: GetAllowanceResponse;
+};
+
+
+export type QueryGet_AssetArgs = {
+  payload: GetAssetPayload;
+};
+
+
+export type QueryGet_BalanceArgs = {
+  payload: GetBalancePayload;
+};
+
+
+export type QueryGet_AllowanceArgs = {
+  payload: GetAllowancePayload;
+};
+
+
+export type ApprovePayload = {
+  asset_id: Scalars['Hash'];
+  to: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+export type Asset = {
+  id: Scalars['Hash'];
+  name: Scalars['String'];
+  symbol: Scalars['String'];
+  supply: Scalars['Uint64'];
+  issuer: Scalars['Address'];
+};
+
+export type CreateAssetPayload = {
+  name: Scalars['String'];
+  symbol: Scalars['String'];
+  supply: Scalars['Uint64'];
+};
+
+export type GetAllowancePayload = {
+  asset_id: Scalars['Hash'];
+  grantor: Scalars['Address'];
+  grantee: Scalars['Address'];
+};
+
+export type GetAllowanceResponse = {
+  asset_id: Scalars['Hash'];
+  grantor: Scalars['Address'];
+  grantee: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+export type GetAssetPayload = {
+  id: Scalars['Hash'];
+};
+
+export type GetBalancePayload = {
+  asset_id: Scalars['Hash'];
+  user: Scalars['Address'];
+};
+
+export type GetBalanceResponse = {
+  asset_id: Scalars['Hash'];
+  user: Scalars['Address'];
+  balance: Scalars['Uint64'];
+};
+
+
+export type TransferFromPayload = {
+  asset_id: Scalars['Hash'];
+  sender: Scalars['Address'];
+  recipient: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+export type TransferPayload = {
+  asset_id: Scalars['Hash'];
+  to: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+
+"
+`;
+
+exports[`metadata service with empty args get_metadata: Metadata 1`] = `
+"/* eslint-disable */
+import { createBindingClass, query, mutation } from \\"@mutajs/service\\";
+import { u64, Hash, Address, Uint64 , Bytes, u32, Vec, Null } from \\"@mutajs/types\\";
+
+export type Maybe<T> = T | null;
+
+export const MetadataService = createBindingClass(
+  'metadata',
+  {
+    
+  },
+  {
+    
+  }
+);
+
+/** All built-in and custom scalars, mapped to their actual values */
+export type Scalars = {
+  ID: string;
+  String: string;
+  Boolean: boolean;
+  Int: number;
+  Float: number;
+  Address: Address;
+  Hash: Hash;
+  Uint64: Uint64;
+};
+
+
+export type ApproveEvent = {
+  asset_id: Scalars['Hash'];
+  grantor: Scalars['Address'];
+  grantee: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+export type Asset = {
+  id: Scalars['Hash'];
+  name: Scalars['String'];
+  symbol: Scalars['String'];
+  supply: Scalars['Uint64'];
+  issuer: Scalars['Address'];
+};
+
+
+export type TransferEvent = {
+  asset_id: Scalars['Hash'];
+  from: Scalars['Address'];
+  to: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+export type TransferFromEvent = {
+  asset_id: Scalars['Hash'];
+  caller: Scalars['Address'];
+  sender: Scalars['Address'];
+  recipient: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+
+export type Event = Asset | TransferEvent | ApproveEvent | TransferFromEvent;
+"
+`;

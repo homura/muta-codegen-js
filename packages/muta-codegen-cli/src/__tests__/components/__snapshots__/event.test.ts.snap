@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`asset event schema 1`] = `
+"/* eslint-disable */
+import { u64, Hash, Address, Uint64 , Bytes, u32, Vec } from \\"@mutajs/types\\";
+
+export type Maybe<T> = T | null;
+
+
+export function isEventOfAsset(event: any): event is Asset {
+  return event?.topic === 'Asset';
+}
+
+export function isEventOfTransferEvent(event: any): event is TransferEvent {
+  return event?.topic === 'TransferEvent';
+}
+
+export function isEventOfApproveEvent(event: any): event is ApproveEvent {
+  return event?.topic === 'ApproveEvent';
+}
+
+export function isEventOfTransferFromEvent(event: any): event is TransferFromEvent {
+  return event?.topic === 'TransferFromEvent';
+}
+
+type _EventName = 'Asset' |
+  'TransferEvent' |
+  'ApproveEvent' |
+  'TransferFromEvent';
+
+interface _IsEventOf {
+  (name: 'Asset', event: any): event is Asset;
+  (name: 'TransferEvent', event: any): event is TransferEvent;
+  (name: 'ApproveEvent', event: any): event is ApproveEvent;
+  (name: 'TransferFromEvent', event: any): event is TransferFromEvent;
+}
+
+export const isEventOf: _IsEventOf =
+  ((name: _EventName, event: any) => event?.topic === name) as _IsEventOf;
+  
+/** All built-in and custom scalars, mapped to their actual values */
+export type Scalars = {
+  ID: string;
+  String: string;
+  Boolean: boolean;
+  Int: number;
+  Float: number;
+  Address: Address;
+  Hash: Hash;
+  Uint64: Uint64;
+};
+
+
+export type ApproveEvent = {
+  asset_id: Scalars['Hash'];
+  grantor: Scalars['Address'];
+  grantee: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+export type Asset = {
+  id: Scalars['Hash'];
+  name: Scalars['String'];
+  symbol: Scalars['String'];
+  supply: Scalars['Uint64'];
+  issuer: Scalars['Address'];
+};
+
+
+export type TransferEvent = {
+  asset_id: Scalars['Hash'];
+  from: Scalars['Address'];
+  to: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+export type TransferFromEvent = {
+  asset_id: Scalars['Hash'];
+  caller: Scalars['Address'];
+  sender: Scalars['Address'];
+  recipient: Scalars['Address'];
+  value: Scalars['Uint64'];
+};
+
+
+export type Event = Asset | TransferEvent | ApproveEvent | TransferFromEvent;
+"
+`;
+
+exports[`simple event should codegen correct 1`] = `
+"/* eslint-disable */
+import { u64, Hash, Address, Uint64 , Bytes, u32, Vec } from \\"@mutajs/types\\";
+
+export type Maybe<T> = T | null;
+
+/** All built-in and custom scalars, mapped to their actual values */
+export type Scalars = {
+  ID: string;
+  String: string;
+  Boolean: boolean;
+  Int: number;
+  Float: number;
+};
+
+export type CreateAssetEvent = {
+  asset_id: Scalars['String'];
+};
+"
+`;
