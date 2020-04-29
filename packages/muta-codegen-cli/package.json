@@ -29,7 +29,6 @@
     "graphql": "^15.0.0",
     "graphql-codegen-plugin-mutasdk": "^0.0.1",
     "lodash": "^4.17.15",
-    "muta-codegen-test": "^0.0.1",
     "node-fetch": "^2.6.0",
     "utility-types": "^3.10.0"
   },
