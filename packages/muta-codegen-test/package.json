@@ -1,0 +1,21 @@
+{
+  "name": "muta-codegen-test",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "private": true,
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+  }
+}
