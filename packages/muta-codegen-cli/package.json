@@ -1,6 +1,6 @@
 {
   "name": "muta-codegen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -27,12 +27,12 @@
     "commander": "^5.0.0",
     "fs-extra": "^9.0.0",
     "graphql": "^15.0.0",
-    "graphql-codegen-plugin-mutasdk": "^0.0.1",
+    "graphql-codegen-plugin-mutasdk": "^0.0.2",
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",
     "utility-types": "^3.10.0"
   },
   "devDependencies": {
-    "muta-codegen-test": "^0.0.1"
+    "muta-codegen-test": "^0.0.2"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "graphql-codegen-plugin-mutasdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -22,6 +22,6 @@
   },
   "devDependencies": {
     "graphql": "^15.0.0",
-    "muta-codegen-test": "^0.0.1"
+    "muta-codegen-test": "^0.0.2"
   }
 }
