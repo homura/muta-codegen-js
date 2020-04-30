@@ -18,11 +18,7 @@ program
       'it will be printed directly on the console',
     'generated',
   )
-  .option(
-    '--source <source>',
-    'a file path, or graphql schema of service, ' +
-      'if this option is provided, the endpoint will not be used',
-  )
+  .option('--source', 'include GraphQL source')
   .option('--sdk-version <mutaSDKVersion>', 'version of muta-sdk', '0.11.0')
   .option('--name [name]', 'project name', 'my-sdk');
 
@@ -30,11 +26,12 @@ interface Options {
   out: string;
   endpoint: string;
   name: string;
-  mutaSDKVersion: string;
+  sdkVersion: string;
+  source: boolean;
 }
 
 export async function start(options: Options): Promise<void> {
-  const { endpoint, name, out, mutaSDKVersion } = options;
+  const { endpoint, name, out, sdkVersion: mutaSDKVersion, source } = options;
   const schemaSource = await fetchSchemaSource(endpoint);
 
   await writeToTs({
@@ -42,6 +39,7 @@ export async function start(options: Options): Promise<void> {
     name,
     path: out,
     services: schemaSource,
+    outputGraphQLSource: source,
   });
 }
 

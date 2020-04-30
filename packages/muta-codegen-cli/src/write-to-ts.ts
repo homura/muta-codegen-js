@@ -19,10 +19,12 @@ export interface SDKWriterOptions {
   mutaSDKVersion: string;
 
   services: SchemaSource[];
+
+  outputGraphQLSource: boolean;
 }
 
 export async function writeToTs(options: SDKWriterOptions): Promise<void> {
-  const { path, mutaSDKVersion } = options;
+  const { path, mutaSDKVersion, outputGraphQLSource } = options;
   const suffix = 'ts';
 
   const resolveSrc = (x: string): string => join(path, 'src', x);
@@ -51,6 +53,12 @@ export async function writeToTs(options: SDKWriterOptions): Promise<void> {
         resolveSrc('index.ts'),
         `export { ${serviceClassName} } from './${serviceName}/${serviceClassName}';\n`,
       );
+      if (outputGraphQLSource) {
+        outputFileSync(
+          resolveSrc(`${serviceName}/${serviceName}.method.graphql`),
+          serviceSource,
+        );
+      }
     }
 
     if (eventCode) {
@@ -59,6 +67,12 @@ export async function writeToTs(options: SDKWriterOptions): Promise<void> {
         resolveSrc('index.ts'),
         `export { isEventOf as isEventOf${serviceClassName} } from './${serviceName}/events';\n`,
       );
+      if (outputGraphQLSource) {
+        outputFileSync(
+          resolveSrc(`${serviceName}/${serviceName}.event.graphql`),
+          eventSource,
+        );
+      }
     }
   }
 
