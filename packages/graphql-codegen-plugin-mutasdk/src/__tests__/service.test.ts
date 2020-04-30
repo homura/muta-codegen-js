@@ -10,7 +10,7 @@ const source = `
 
 type Query {
   getAsset(payload: GetAssetPayload!): Asset!
-  getBalance(payload: GetBalancePayload!): u64!
+  getBalance(payload: GetBalancePayload!): U64!
 }
 
 input GetAssetPayload {
@@ -37,7 +37,7 @@ input TransferPayload {
 }
 
 input CreateAssetPayload {
-  supply: u64!
+  supply: U64!
   name: String!
   symbol: String!
 }
@@ -54,7 +54,7 @@ type GeneralMutationResponse {
   receiptType: String
 }
 type CreateAssetReceipt {
-  supply: u64!
+  supply: U64!
   name: String!
   symbol: String!
   id: Hash!
@@ -67,11 +67,11 @@ type Asset {
   id: Hash!
   name: String!
   symbol: String!
-  supply: u64!
+  supply: U64!
   issuer: Address!
 }
 scalar Address
-scalar u64
+scalar U64
 scalar Hash
 `;
 
@@ -84,11 +84,11 @@ it('parse asset service', () => {
         payloadType: 'GetAssetPayload',
         returnType: 'Asset',
       },
-      // getBalance(payload: GetBalancePayload): u64!
+      // getBalance(payload: GetBalancePayload): U64!
       {
         name: 'getBalance',
         payloadType: 'GetBalancePayload',
-        returnType: 'u64',
+        returnType: 'U64',
       },
     ],
     mutation: [
