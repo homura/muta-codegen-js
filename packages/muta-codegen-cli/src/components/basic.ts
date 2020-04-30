@@ -21,13 +21,20 @@ export function codegen(options: Options): Promise<string> {
     documents: [],
     config: {
       scalars: {
-        Address: 'Address',
-        u64: 'u64',
-        Hash: 'Hash',
-        Uint64: 'Uint64',
+        /* null */
         Null: "''",
-        Hex: 'string',
-        Uint32: 'string',
+
+        /* number */
+        U32: 'U32',
+        U64: 'U64',
+
+        /* bytes like */
+        Uint32: 'Uint32',
+        Uint64: 'Uint64',
+        Hex: 'Hex',
+        Bytes: 'Bytes',
+        Hash: 'Hash',
+        Address: 'Address',
       },
       skipTypename: true,
     },
