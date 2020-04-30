@@ -15,7 +15,5 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "precommit": "lint-staged"
-  },
-  "dependencies": {
   }
 }

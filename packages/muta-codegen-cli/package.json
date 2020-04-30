@@ -33,6 +33,6 @@
     "utility-types": "^3.10.0"
   },
   "devDependencies": {
-    "muta-codegen-test": "0.0.1"
+    "muta-codegen-test": "^0.0.1"
   }
 }
