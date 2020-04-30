@@ -5,9 +5,8 @@ exports[`asset service 1`] = `
 // @ts-nocheck
 /* eslint-disable */
 
+import { Address, Hash, Uint64, Null } from '@mutajs/types';
 import { createBindingClass, query, mutation } from \\"@mutajs/service\\";
-import { U64, Hash, Address, Uint64 , Bytes, u32, Vec, Null } from \\"@mutajs/types\\";
-
 export type Maybe<T> = T | null;
 
 export const AssetService = createBindingClass(
@@ -35,7 +34,7 @@ export type Scalars = {
   Address: Address;
   Hash: Hash;
   Uint64: Uint64;
-  Null: '';
+  Null: Null;
 };
 
 export type Mutation = {
@@ -158,9 +157,8 @@ exports[`metadata service with empty args get_metadata: Metadata 1`] = `
 // @ts-nocheck
 /* eslint-disable */
 
+import { Address, Hash, Uint64 } from '@mutajs/types';
 import { createBindingClass, query, mutation } from \\"@mutajs/service\\";
-import { U64, Hash, Address, Uint64 , Bytes, u32, Vec, Null } from \\"@mutajs/types\\";
-
 export type Maybe<T> = T | null;
 
 export const MetadataService = createBindingClass(

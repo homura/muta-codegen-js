@@ -22,7 +22,7 @@ export function codegen(options: Options): Promise<string> {
     config: {
       scalars: {
         /* null */
-        Null: "''",
+        Null: "Null",
 
         /* number */
         U32: 'U32',

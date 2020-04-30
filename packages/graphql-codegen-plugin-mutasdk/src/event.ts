@@ -1,10 +1,6 @@
 import { PluginFunction } from '@graphql-codegen/plugin-helpers';
 import { GraphQLSchema, isUnionType } from 'graphql';
-import { TOP_TIP } from './fragments';
-
-const importSegment = `${TOP_TIP}
-import { U64, Hash, Address, Uint64 , Bytes, u32, Vec } from "@mutajs/types";
-`;
+import { scalarsIn, TOP_TIP } from './fragments';
 
 interface EventDef {
   name: string;
@@ -48,7 +44,7 @@ export function generateEventDefCode(schema: GraphQLSchema): string {
 
 export const plugin: PluginFunction = schema => {
   return {
-    prepend: [importSegment],
+    prepend: [TOP_TIP, scalarsIn(schema)],
     content: generateEventDefCode(schema),
   };
 };

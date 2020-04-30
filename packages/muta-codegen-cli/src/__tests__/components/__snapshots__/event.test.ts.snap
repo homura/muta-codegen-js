@@ -5,8 +5,7 @@ exports[`asset event schema 1`] = `
 // @ts-nocheck
 /* eslint-disable */
 
-import { U64, Hash, Address, Uint64 , Bytes, u32, Vec } from \\"@mutajs/types\\";
-
+import { Address, Hash, Uint64 } from '@mutajs/types';
 export type Maybe<T> = T | null;
 
 
@@ -95,8 +94,7 @@ exports[`simple event should codegen correct 1`] = `
 // @ts-nocheck
 /* eslint-disable */
 
-import { U64, Hash, Address, Uint64 , Bytes, u32, Vec } from \\"@mutajs/types\\";
-
+import {  } from '@mutajs/types';
 export type Maybe<T> = T | null;
 
 /** All built-in and custom scalars, mapped to their actual values */
