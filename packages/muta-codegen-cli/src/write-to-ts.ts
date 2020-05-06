@@ -6,6 +6,7 @@ import {
   generatePackageJSONCode,
   generateServiceBindingCode,
 } from './components';
+import { generateTsconfigJSONCode } from './components/tsconfigJSON';
 import { SchemaSource } from './fetch';
 
 export interface SDKWriterOptions {
@@ -44,6 +45,7 @@ export async function writeToTs(options: SDKWriterOptions): Promise<void> {
 
     const serviceClassName = `${upperFirst(serviceName)}Service`;
 
+    // generate service method binding
     if (serviceCode) {
       outputFileSync(
         resolveSrc(`${serviceName}/${serviceClassName}.${suffix}`),
@@ -61,6 +63,7 @@ export async function writeToTs(options: SDKWriterOptions): Promise<void> {
       }
     }
 
+    // generate event binding
     if (eventCode) {
       outputFileSync(resolveSrc(`${serviceName}/events.${suffix}`), eventCode);
       appendFileSync(
@@ -76,6 +79,7 @@ export async function writeToTs(options: SDKWriterOptions): Promise<void> {
     }
   }
 
+  // generate package.json
   outputFileSync(
     join(path, 'package.json'),
     await generatePackageJSONCode({
@@ -83,4 +87,7 @@ export async function writeToTs(options: SDKWriterOptions): Promise<void> {
       name: options.name,
     }),
   );
+
+  // generate tsconfig.json
+  outputFileSync(join(path, 'tsconfig.json'), await generateTsconfigJSONCode());
 }

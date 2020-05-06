@@ -10,7 +10,7 @@ export function generatePackageJSONCode(
   "name": "${options.name}",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc --outDir lib src/**/*.ts"
+    "build": "tsc"
   },
   "dependencies": {
     "@mutajs/types": "${options.mutaSDKVersion}",
